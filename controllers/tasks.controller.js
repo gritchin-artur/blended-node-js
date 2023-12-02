@@ -31,8 +31,8 @@ const updateTask = controllerWrapper(async (req, res) => {
 
 const deleteTask = controllerWrapper(async (req, res) => {
   const { id } = req.params;
-  await deleteTaskService(id);
-  res.sendStatus(204);
+  const deleteTask = await deleteTaskService(id);
+  res.status(200).json(deleteTask);
 });
 
 module.exports = {
